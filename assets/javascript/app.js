@@ -179,7 +179,7 @@ function resetVars() {
 }
 
 // displays countdown
-function showTime(timeLeft) {
+function showTime() {
     timeLeft = timeLeft - 1;
 	  $("#timerDiv").html("<h3>Time Remaining: " + timeLeft + " seconds.</h3>");
 }
@@ -204,9 +204,9 @@ function makeQuestionPage(index) {
 		answerButton.text(questions[index].answers[k]);
 		$("#buttonDiv").append(answerButton);
 	}
-	sessionTime = setTimeout(function(){makeAnswerPage(index, null);}, 1000 * 25);
+	sessionTime = setTimeout(function() {makeAnswerPage(index, null);}, 1000 * 25);
 	timeLeft = 25;
-	intervalID = setInterval(function(){showTime(timeLeft);}, 1000);
+	intervalID = setInterval(function() {showTime(timeLeft);}, 1000);
 }
 
 // shows result of preceding question
@@ -232,7 +232,7 @@ function makeAnswerPage(index, userAns) {
 		$("#questDiv").append(correctness);
 		ansHeading.text("The correct answer is: ");
 		$("#questDiv").append(ansHeading);
-		answer.text(questions[index].answer[c]);
+		answer.text(questions[index].answers[c]);
 		$("#questDiv").append(answer);
 	}
 	else if (ansCorrect == true) {
@@ -251,12 +251,12 @@ function makeAnswerPage(index, userAns) {
 	var image = $('<img id="answerImg" src="' + questions[index].img + '">');
 	$("#questDiv").append(image);
 
-	if (ansCorrect != true) {
+	if (ansCorrect == false || userAns == null) {
 		expDisplay.text(questions[index].explain);
 		$("#questDiv").append(expDisplay);
 	}
 	questionNum++;
-	sessionTime = setTimeout(function(){makeQuestionPage(questionNum);}, 1000 * 10);
+	sessionTime = setTimeout(function() {makeQuestionPage(questionNum);}, 1000 * 10);
 }
 
 // the final screen at end of game
