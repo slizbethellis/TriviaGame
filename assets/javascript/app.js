@@ -1,4 +1,4 @@
-// The array of objects for the 10 quiz questions is ENORMOUS! Scroll to line 130 to find functions.
+// The array of objects for the 10 quiz questions is ENORMOUS! Scroll to line 138 to find functions.
 var questions = [
 	{
 		q: "Which Doctor Who episode or serial was the first to feature the Daleks?",
@@ -273,6 +273,7 @@ function makeEndPage() {
 		var missy = $('<img id="answerImg" src="assets/images/missy.gif">');
 		$("#questDiv").append(missy);
 		correct.text("You might know *too much* about the Daleks. I'd watch my back if I were you.");
+		$("#questDiv").append(correct);
 	}
 	else {
 		audioDes.play();
