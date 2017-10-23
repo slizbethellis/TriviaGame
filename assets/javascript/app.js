@@ -206,7 +206,7 @@ function makeQuestionPage(index) {
 	}
 	sessionTime = setTimeout(function() {makeAnswerPage(index, null);}, 1000 * 25);
 	timeLeft = 25;
-	intervalID = setInterval(function() {showTime(timeLeft);}, 1000);
+	intervalID = setInterval(showTime, 1000);
 }
 
 // shows result of preceding question
